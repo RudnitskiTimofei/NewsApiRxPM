@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="article"
+            type="by.it.andersen.newsapirxpm.model.Article" />
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/layout_height_recycler_view"
+    android:layout_margin="@dimen/margin_16dp"
+    android:background="@color/colorPrimary"
+    android:onClick="onNewsClick"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image_item"
+            android:layout_width="@dimen/layout_height_recycler_view"
+            android:layout_height="@dimen/layout_height_recycler_view"
+            android:transitionName="@string/transition"
+            android:src="@{article.urlToImage}"
+            />
+
+        <LinearLayout
+            android:id="@+id/linear_layout_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/author_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="@{article.author}"/>
+
+            <TextView
+                android:id="@+id/title_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.title}"
+                />
+
+            <TextView
+                android:id="@+id/publishedAt_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.publishedAt}"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</layout>
